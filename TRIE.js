@@ -77,15 +77,19 @@ class Trie {
 	}
 }
 
+// Unit test
+(() => {
+	if (require.main == module) {
+		const root = new Trie();
+		root.insert('aaabb');
+		root.insert('aa');
+		root.insert('aavvccc');
+		root.insert('dsdsd');
+		root.insert('aaacc');
 
-const root = new Trie();
-root.insert('aaabb');
-root.insert('aa');
-root.insert('aavvccc');
-root.insert('dsdsd');
-root.insert('aaacc');
-
-console.log(root.search('aaabb'));
-console.log(root.search('aaabbddd'));
-console.log(root.search('a'));
-console.log(root.autoSuggest('aa'));
+		console.log(root.search('aaabb'));
+		console.log(root.search('aaabbddd'));
+		console.log(root.search('a'));
+		console.log(root.autoSuggest('aa'));
+	}
+})();

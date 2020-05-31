@@ -71,17 +71,22 @@ class LRUCache {
   }
 }
 
-let cache = new LRUCache(2);
-console.log('setting key:value pair, 1:10');
-cache.set(1, 10); 
-console.log('setting key:value pair, 2:20'); 
-cache.set(2, 20); 
-console.log(`getting result for key 1: ${cache.get(1)}`);
-console.log('setting key:value pair, 3:30'); 
-cache.set(3, 30);
-console.log(`getting result for key 2: ${cache.get(2)}`);
-console.log('setting key:value pair, 4:40'); 
-cache.set(4, 40); 
-console.log(`getting result for key 1: ${cache.get(1)}`);
-console.log(`getting result for key 3: ${cache.get(3)}`);
-console.log(`getting result for key 4: ${cache.get(4)}`);
+// Unit test
+(() => {
+	if (require.main == module) {
+		let cache = new LRUCache(2);
+    console.log('setting key:value pair, 1:10');
+    cache.set(1, 10); 
+    console.log('setting key:value pair, 2:20'); 
+    cache.set(2, 20); 
+    console.log(`getting result for key 1: ${cache.get(1)}`);
+    console.log('setting key:value pair, 3:30'); 
+    cache.set(3, 30);
+    console.log(`getting result for key 2: ${cache.get(2)}`);
+    console.log('setting key:value pair, 4:40'); 
+    cache.set(4, 40); 
+    console.log(`getting result for key 1: ${cache.get(1)}`);
+    console.log(`getting result for key 3: ${cache.get(3)}`);
+    console.log(`getting result for key 4: ${cache.get(4)}`);
+	}
+})();
