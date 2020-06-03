@@ -1,5 +1,4 @@
 "use strict";
-
 class Graph {
   constructor(nodeCount) {
     this.nodeCount = nodeCount;
