@@ -57,6 +57,6 @@ class KMP {
 // Unit test
 (() => {
 	if (require.main == module) {
-    KMP.search('aaabaabacaaba', 'aaba');
+    KMP.search('aaabaabacaaba', 'aabaabaaa');
 	}
 })();
