@@ -53,7 +53,7 @@ class Graph {
   
   // Time Complexity - O(V+E)
   // Space Complexity - O(V) for stack
-  topologicalSort() {
+  topologicalSort() { // how to handle cycle?
     let visited = [];
     let stack = [];
     for(let i=0; i<this.nodeCount; i++) {
