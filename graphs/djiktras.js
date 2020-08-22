@@ -1,5 +1,26 @@
 "use strict";
 
+/*
+  Algo
+    1. Consider distance to reach every vertix is Infinity.
+    2. Distance to reach source = 0
+    3. Loop [0-V}
+      3.1 Find non visited vertix (u) with shortest distance and mark it visited
+      3.2 Loop [0-V}
+        3.2.1 try to update distance of every vertix from source u
+  
+  Complexity
+    O(V^2)
+
+    * can be solved in ElogV using adjacency list implementation
+*/
+
+/*
+  Note
+   1. Only works for positive weighted graph
+   2. For -ve weighted graph, use Bellman Ford algo
+*/
+
 class Dijiktras {
   constructor(adjMatrix) {
     this.matrix = adjMatrix;
@@ -22,21 +43,21 @@ class Dijiktras {
   findShortestDistanceFromSource(source) {
     let V = this.matrix.length;
     let dist = [];
-    let sptSet = []; // shortest path tree set
+    let visited = []; // shortest path tree set
 
     for(let i=0; i<V; i++) {
       dist.push(Infinity);
-      sptSet.push(false);
+      visited.push(false);
     }
 
     dist[source] = 0;
 
     for(let i=0; i<V; i++) {
-      let u = Dijiktras.getShortestNonVisitedVertixIndex(dist, sptSet);
-      sptSet[u] = true;
+      let u = Dijiktras.getShortestNonVisitedVertixIndex(dist, visited);
+      visited[u] = true;
 
       for(let j=0; j<V; j++) {
-        if(!sptSet[j] && this.matrix[u][j] && (dist[u] + this.matrix[u][j] < dist[j])){
+        if(!visited[j] && this.matrix[u][j] && (dist[u] + this.matrix[u][j] < dist[j])){
           dist[j] = dist[u] + this.matrix[u][j];
         }
       }

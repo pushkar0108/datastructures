@@ -56,7 +56,7 @@ var isCyclicUtil = function(source, adjMap, visited, recStack) {
 
 let flag = isCyclicGraph(
   4,
-  [[3,0],[0,1],[1,0]] // 0 is prerequisite for 3
+  [[3,0],[0,1],[1,0]] // 0 is prerequisite for 3 (Edge 0 ---> 3)
 );
 
 console.log("isCyclicGraph: ", flag);

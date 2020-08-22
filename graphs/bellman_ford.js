@@ -1,5 +1,24 @@
 "use strict";
 
+/*
+  Algo
+    1. Consider distance to reach every vertix is Infinity.
+    2. Distance to reach source = 0
+    3. Loop [0-V}
+      3.1 Loop [0-E} [edge is like [source, destination, distance]]
+        3.1.1 try to update distance of destination from source where source(distance) != Infinity
+    4. One more time try to do 3.1
+      if worked, graph cannot be solved due to presence of -ve weight cycle.
+  
+  Complexity
+    O(VE)
+*/
+
+/*
+  Note
+   works for positive and negative weighted graph
+*/
+
 class BellmanFord {
   constructor(numberOfVertices, edges = []) {
     this.V = numberOfVertices;
